@@ -25,7 +25,7 @@ struct ContentView: View {
                             .foregroundColor(toDo.completed ? .green : Color(.label))
                     }
                 }
-                .onDelete(perform: dataStore.deleteToDo)
+                .onDelete(perform: dataStore.deleteToDo.send) // .onDelete(perform: dataStore.deleteToDo)
             }
             .listStyle(InsetGroupedListStyle())
             .toolbar {

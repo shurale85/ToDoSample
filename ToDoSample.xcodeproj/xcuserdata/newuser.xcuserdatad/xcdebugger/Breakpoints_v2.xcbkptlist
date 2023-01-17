@@ -24,14 +24,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "ED79364E-1626-4B70-80DD-661443D7A210"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ToDoSample/ViewModels/DataStore.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "saveToDos()"
             landmarkType = "7">
          </BreakpointContent>
@@ -40,48 +40,16 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "01F2A59D-F0C0-4B17-92F5-B20B59C10E5E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ToDoSample/ViewModels/DataStore.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "saveToDos()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "01F2A59D-F0C0-4B17-92F5-B20B59C10E5E - 1fc4b0a180d1e0f9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;ToDoSample.ToDoError&gt;) -&gt; () in ToDoSample.DataStore.saveToDos() -&gt; ()"
-                  moduleName = "ToDoSample"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/newuser/Documents/IosTutorials/ToDoSample/ToDoSample/ViewModels/DataStore.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "94">
-               </Location>
-               <Location
-                  uuid = "01F2A59D-F0C0-4B17-92F5-B20B59C10E5E - 1fc4b0a180d1e0f9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;ToDoSample.ToDoError&gt;) -&gt; () in ToDoSample.DataStore.saveToDos() -&gt; ()"
-                  moduleName = "ToDoSample"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/newuser/Documents/IosTutorials/ToDoSample/ToDoSample/ViewModels/DataStore.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "106">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -6,34 +6,55 @@
 //
 
 import Foundation
+import Combine
 
+
+/// This version is refactored by using PassthroughSubject and Set<AnyCancellable>()
+// PassthroughSubject -  subject that broadcasts elements to downstream subscribers
+// add, update, delete funcions are replaced by publishers accordingly. They can be found in prev commit
 class DataStore: ObservableObject {
     @Published var toDos: [ToDo] = []
     @Published var appErr: ErrorType? = nil
     
+    var addToDo = PassthroughSubject<ToDo, Never>()
+    var updateToDo = PassthroughSubject<ToDo, Never>()
+    var deleteToDo = PassthroughSubject<IndexSet, Never>()
+    
+    var subscriptions = Set<AnyCancellable>()
+    
     init() {
         print(FileManager.docDirURL.path)
+        addSubscriptions()
         if FileManager().docExist(named: fileName) {
             loadToDos()
         }
     }
     
-    func addToDo(_ toDo: ToDo) {
-        toDos.append(toDo)
-        saveToDos()
+    func addSubscriptions() {
+        addToDo
+            .sink(receiveValue: { [unowned self] toDo in
+            toDos.append(toDo)
+            saveToDos()
+        })
+            .store(in: &subscriptions)
+        
+        updateToDo
+            .sink { [unowned self] toDo in
+                guard let index = toDos.firstIndex(where: { $0.id == toDo.id}) else { return }
+                toDos[index] = toDo
+                saveToDos()
+            }
+            .store(in: &subscriptions)
+        
+        deleteToDo
+            .sink { [unowned self] indexSet in
+                toDos.remove(atOffsets: indexSet)
+                saveToDos()
+            }
+            .store(in: &subscriptions)
+        
     }
-    
-    func updateToDo(_ toDo: ToDo) {
-        guard let index = toDos.firstIndex(where: { $0.id == toDo.id}) else { return }
-        toDos[index] = toDo
-        saveToDos()
-    }
-    
-    func deleteToDo(at indexSet: IndexSet) {
-        toDos.remove(atOffsets: indexSet)
-        saveToDos()
-    }
-    
+
     func loadToDos() {
         FileManager().readDocument(docName: fileName) { result in
             switch result {
